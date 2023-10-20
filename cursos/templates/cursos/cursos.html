@@ -1,0 +1,38 @@
+{% extends "Universidad3/base.html"%}
+
+{% load static %}
+
+{% block content%}
+<div class="container">
+    <div style="float: right;">
+        <p style="color: white;">Total créditos asignados: {{importe_total}}</p>
+
+        {%  if request.user.is_authenticated %}
+
+            {% include "carro/widget.html" %}
+        {% else %}
+            <div class="alert alert-danger text-center">Iniciar sesión para asignar cursos</div>
+        {% endif %}
+
+
+    </div>
+    <div class="row">
+{% for curso in cursos %}
+        <div class="col-md-3">
+
+        <div class="card" style="width: 100%; margin: 15px 5px;" >
+
+            <img src="{{curso.imagen.url}}" class="card-img-top">
+            <div class="card-body" style="text-align: center;">
+                <h7 class="card-title">{{curso.nombre}}</h7>
+                <p class="card-text">Créditos: {{curso.creditos}} </p>    
+            </div>
+            <div class="card-footer text-center">
+                <a href="{% url 'carro:agregar' curso.id %}" class="btn btn-success">Asignar Curso</a>
+            </div>
+        </div>
+        </div>
+{% endfor %}
+    </div>
+</div>
+{% endblock %}
