@@ -92,10 +92,10 @@ WSGI_APPLICATION = 'Universidad3.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Universidad3',
-        'USER': 'postgres',
-        'PASSWORD': '7499',
-        'HOST': '127.0.0.1',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'DATABASE_PORT': '5432',
     }
 }

@@ -35,7 +35,7 @@ def procesar_asignacion(request):
 
     messages.success(request, "La asignación de curso fue exitosa")
 
-    return redirect('../cursos')
+    return redirect('../cursos/exito')
 
 def enviar_mail(**kwargs):
 
@@ -52,3 +52,4 @@ def enviar_mail(**kwargs):
     #to="dorianchuquiej@gmail.com"
 
     send_mail(asunto, mensaje_texto, from_email, [to], html_message=mensaje)
+

@@ -1,0 +1,63 @@
+{% extends "Universidad3/base.html"%}
+
+{% load static %}
+
+{% block content%}
+
+<table class="table table-bordered" style="color: gray; margin: 50px 20px;">
+    <thead>
+        <tr>
+            <th colspan="3" class="text-center">
+                RESUMEN DE ASIGNACIÓN
+
+            </th>
+        </tr>
+        <tr>
+            <th>Curso</th>
+            <th>Cantidad</th>
+            <th>CRÉDITOS POR CURSO</th>
+        </tr>
+
+
+    </thead>
+    <tbody>
+        {% if request.session.carro.items %}
+            {% for key, value in request.session.carro.items %}
+                <tr class="text-center">
+                    <td>{{value.nombre}}</td>
+                    <td>{{value.cantidad}}</td>
+                    <td>
+                        
+
+                        {{value.creditos}}
+                    </td>
+                </tr>
+
+            {% endfor%}
+        {% else%}
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-danger text-center">
+                        Sin cursos
+                    </div>
+                </td>
+
+
+            </tr>    
+        {% endif %}
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total créditos asignados: {{importe_total}}
+
+            </td>
+        </tr>
+        
+    </tfoot>
+
+
+</table>
+
+{% endblock %}
